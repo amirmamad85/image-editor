@@ -1,0 +1,152 @@
+<html>
+<head>
+  <title>Image filters</title>
+</head>
+<style>
+.slider,.slider2,.slider3,.slider4,.slider5,.slider6 {
+  background-color:#d3d3d3;
+  outline:none;
+  width:36%;
+  height: 15px;
+}
+.slider {
+  margin-top:-22%;
+}
+.slider2 {
+  margin-top:-18%;
+  margin-left:-37%;
+}
+.slider3 {
+  margin-top:-14%;
+  margin-left:-37%;
+}
+.slider4 {
+  margin-top:-10%;
+  margin-left:-37%;
+}
+.slider5 {
+  margin-top:-6%;
+  margin-left:-37%;
+}
+.slider6 {
+  margin-top:2%;
+  margin-left:-37%;
+}
+.slider::-moz-range-thumb {
+  width:20px;
+  height:20px;
+  background-color:red;
+  cursor:pointer;
+}
+.slider2::-moz-range-thumb {
+  width:20px;
+  height:20px;
+  background-color:green;
+  cursor:pointer;
+}
+.slider3::-moz-range-thumb {
+  width:20px;
+  height:20px;
+  background-color:blue;
+  cursor:pointer;
+}
+.slider4::-moz-range-thumb {
+  width:20px;
+  height:20px;
+  background-color:purple;
+  cursor:pointer;
+}
+.slider5::-moz-range-thumb {
+  width:20px;
+  height:20px;
+  background-color:#FF8C00;
+  cursor:pointer;
+}
+.slider6::-moz-range-thumb {
+  width:20px;
+  height: 20px;
+  background-color:#663399;
+  cursor:pointer;
+}
+#demo {
+  margin-left:10%;
+  margin-top:6%;
+  font-family:sans-serif;;
+  font-size:35px;
+}
+#img {
+  margin-top:2%;
+}
+</style>
+<body>
+  <!-- image -->
+  <img  src="/home/amirmamad/Pictures/fidelandche.jpeg" style="width:500px;height:300px;margin-left:50%;" id="img">
+
+  <!-- blur() -->
+  <input type="range" min="0" max="100" value="0" class="slider" id="slide">
+
+  <!-- brightness() -->
+  <input type="range" min="0" max="200" value="0" class="slider2" id="slide2">
+
+  <!-- contrast() -->
+  <input type="range" min="0" max="200" value="0" class="slider3" id="slide3">
+
+  <!-- hue-rotate() -->
+  <input type="range" min="0" max="360" value="0" class="slider4" id="slide4">
+
+  <!-- invert() -->
+  <input type="range" min="0" max="360" value="0" class="slider5" id="slide5">
+
+  <!-- opactiy -->
+  <input type="range" min="0" max="100" value="0" class="slider6" id="slide6">
+  <p id="demo"></p>
+
+  <script>
+  var slider = document.getElementById("slide");
+  var slider2  = document.getElementById("slide2");
+  var slider3 = document.getElementById("slide3");
+  var slide4  = document.getElementById("slide4");
+  var slide5 = document.getElementById("slide5");
+  var slide6 = document.getElementById("slide6");
+  var p = document.getElementById("demo");
+  var img = document.getElementById("img");
+  p.innerHTML = slider.value;
+
+  // blur()
+  slider.oninput = function() {
+  p.innerHTML = slider.value;
+  img.style.WebkitFilter = 'blur('+slider.value+'px)';
+}
+
+  //brightness()
+  slider2.oninput = function() {
+    p.innerHTML = slider2.value;
+    img.style.WebkitFilter = 'brightness('+slider2.value+'%)';
+  }
+
+  //contrast()
+  slider3.oninput = function() {
+    p.innerHTML = slider3.value;
+    img.style.WebkitFilter = 'contrast('+slider3.value+'%)';
+  }
+
+  //hue-rotate()
+  slide4.oninput = function() {
+    p.innerHTML = slide4.value;
+    img.style.WebkitFilter = 'hue-rotate('+slide4.value+'deg)';
+  }
+
+  //invert()
+  slide5.oninput = function() {
+    p.innerHTML = slide5.value;
+    img.style.WebkitFilter = 'invert('+slide5.value+'%)';
+  }
+
+  //opacity
+  slide6.oninput = function() {
+    p.innerHTML = slide6.value;
+    img.style.WebkitFilter = 'opacity('+slide6.value+'%)';
+  }
+  </script>
+</body>
+</html>
